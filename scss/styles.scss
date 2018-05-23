@@ -1,0 +1,50 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html, body {
+	display: block;
+	width: 100vw;
+	height: 100vh;
+}
+
+body {
+    background: url(https://image.shutterstock.com/z/stock-photo-street-in-the-heavy-rain-prague-czech-republic-265324370.jpg);
+	background-size: cover;
+}
+
+.rain span {
+	position: relative;
+}
+
+.rain span::before {
+	content: "";
+	position: absolute;
+	display: block;
+	width: 1mm;
+	height: 3mm;
+	top: 0;
+	left: 0;
+	filter: blur(3px);
+	background: rgba(0, 0, 0, 0.5);
+	border-radius: 100%;
+	opacity: 0;
+	animation: rainAnim 5s ease-in-out infinite;
+}
+
+.rain span:nth-child(5n)::before { animation-delay: 0s; }
+.rain span:nth-child(5n-1)::before { animation-delay: 3s; }
+.rain span:nth-child(5n-2)::before { animation-delay: 6s; }
+.rain span:nth-child(5n-3)::before { animation-delay: 9s; }
+.rain span:nth-child(5n-4)::before { animation-delay: 12s; }
+
+@keyframes rainAnim {
+    from { 
+        opacity: 1;
+    }
+    to { 
+        opacity: 0; 
+        top: 5em; 
+    }
+}
